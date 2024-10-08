@@ -1,5 +1,6 @@
 {
   lib,
+<<<<<<< HEAD
   python3Packages,
   fetchFromGitHub,
 
@@ -13,6 +14,10 @@
   lsof,
   btrfs-progs,
   util-linux,
+  python3,
+  toybox,
+  withAdjustor ? false,
+  adjustor
 }:
 python3Packages.buildPythonApplication rec {
   pname = "handheld-daemon";
@@ -86,6 +91,8 @@ python3Packages.buildPythonApplication rec {
     rich
     setuptools
     xlib
+  ] ++ lib.optionals withAdjustor [
+    adjustor
   ];
 
   # This package doesn't have upstream tests.
